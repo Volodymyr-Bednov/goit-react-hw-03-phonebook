@@ -12,6 +12,14 @@ export class App extends Component {
     filter: '',
   };
 
+  componentDidUpdate() {
+    // this.state.contacts
+    localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
+  }
+
+  componentDidMount() {
+    this.setState({ contacts: JSON.parse(localStorage.getItem('contacts')) });
+  }
   addContactHandler = evt => {
     evt.preventDefault();
     const { name, number } = evt.target.elements;
