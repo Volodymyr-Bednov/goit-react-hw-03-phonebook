@@ -9,11 +9,10 @@ import css from './App.module.css';
 export class App extends Component {
   state = {
     contacts: [],
-    filter: null,
+    filter: '',
   };
 
   componentDidUpdate() {
-    // this.state.contacts
     localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
   }
 
